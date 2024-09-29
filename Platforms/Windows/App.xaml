@@ -1,0 +1,99 @@
+﻿<maui:MauiWinUIApplication
+    x:Class="WinUIComboBox.WinUI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinUIComboBox.WinUI"
+    xmlns:maui="using:Microsoft.Maui">
+    <maui:MauiWinUIApplication.Resources>
+        <ResourceDictionary>
+            <x:Int32 x:Key="ComboBoxPopupMaxNumberOfItems">10</x:Int32>
+            <!--<Style TargetType="ComboBox">
+                <Setter Property="TextBoxStyle" Value="{StaticResource ComboBoxTextBoxStyle}" />
+            </Style>-->
+            <Style x:Key="ComboBoxTextBoxStyle" TargetType="TextBox">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TextBox">
+                            <Grid>
+                                <Border
+                                    x:Name="BorderElement"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Background="Transparent"
+                                    BorderBrush="Red"
+                                    BorderThickness="0"
+                                    Control.IsTemplateFocusTarget="True"
+                                    CornerRadius="{TemplateBinding CornerRadius}" />
+                                <ScrollViewer
+                                    x:Name="ContentElement"
+                                    Margin="{TemplateBinding BorderThickness}"
+                                    Padding="{TemplateBinding Padding}"
+                                    AutomationProperties.AccessibilityView="Raw"
+                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                    HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"
+                                    IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                                    IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}"
+                                    IsTabStop="False"
+                                    IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}"
+                                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                    VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"
+                                    ZoomMode="Disabled" />
+                                <TextBlock
+                                    x:Name="PlaceholderTextContentPresenter"
+                                    Margin="{TemplateBinding BorderThickness}"
+                                    Padding="{TemplateBinding Padding}"
+                                    Foreground="{Binding PlaceholderForeground, RelativeSource={RelativeSource TemplatedParent}, TargetNullValue={ThemeResource TextControlPlaceholderForeground}}"
+                                    IsHitTestVisible="False"
+                                    Text="{TemplateBinding PlaceholderText}"
+                                    TextAlignment="{TemplateBinding TextAlignment}"
+                                    TextWrapping="{TemplateBinding TextWrapping}" />
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal" />
+                                        <VisualState x:Name="Disabled">
+                                            <VisualState.Setters>
+                                                <Setter Target="BorderElement.Background" Value="Transparent" />
+                                                <Setter Target="BorderElement.BorderBrush" Value="{ThemeResource TextControlBorderBrushDisabled}" />
+                                                <Setter Target="ContentElement.Foreground" Value="{ThemeResource ComboBoxForeground}" />
+                                                <Setter Target="PlaceholderTextContentPresenter.Foreground" Value="{Binding PlaceholderForeground, RelativeSource={RelativeSource TemplatedParent}, TargetNullValue={ThemeResource TextControlPlaceholderForegroundDisabled}}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="PointerOver">
+                                            <VisualState.Setters>
+                                                <Setter Target="BorderElement.Background" Value="Transparent" />
+                                                <Setter Target="BorderElement.BorderBrush" Value="{ThemeResource TextControlBorderBrushPointerOver}" />
+                                                <Setter Target="ContentElement.Foreground" Value="{ThemeResource ComboBoxForeground}" />
+                                                <Setter Target="PlaceholderTextContentPresenter.Foreground" Value="{Binding PlaceholderForeground, RelativeSource={RelativeSource TemplatedParent}, TargetNullValue={ThemeResource TextControlPlaceholderForegroundPointerOver}}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Focused">
+                                            <VisualState.Setters>
+
+                                                <Setter Target="BorderElement.Background" Value="Transparent" />
+                                                <Setter Target="BorderElement.BorderBrush" Value="{ThemeResource TextControlBorderBrushFocused}" />
+                                                <Setter Target="ContentElement.Foreground" Value="{ThemeResource ComboBoxForeground}" />
+                                                <Setter Target="BorderElement.BorderThickness" Value="0" />
+                                                <Setter Target="ContentElement.RequestedTheme" Value="Light" />
+                                            </VisualState.Setters>
+
+                                        </VisualState>
+                                        <VisualState x:Name="UnFocused">
+                                            <VisualState.Setters>
+                                                <Setter Target="BorderElement.Background" Value="Transparent" />
+                                                <Setter Target="BorderElement.BorderBrush" Value="{ThemeResource TextControlBorderBrushFocused}" />
+                                                <Setter Target="BorderElement.BorderThickness" Value="0" />
+                                                <Setter Target="ContentElement.RequestedTheme" Value="Light" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="IsEnabled" Value="False" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+            </Style>
+        </ResourceDictionary>
+    </maui:MauiWinUIApplication.Resources>
+</maui:MauiWinUIApplication>
